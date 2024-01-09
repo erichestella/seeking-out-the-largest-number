@@ -8,6 +8,12 @@ chisato.geometry ("400x300")
 chisato.config(bg="pink")
 chisato.resizable(False, False)
 
+
+taki= ('Britannic Bold', 45, 'bold')
+inoue= ('Franklin Gothic Heavy', 30, 'bold')
+
+
+
 # defines which is the largest number among the three numbers entered
 def press():
    first_number = float(enter_firstnumber.get())
@@ -27,19 +33,19 @@ def press():
 
 
 # button to press if the three numbers are done entering 
-press_button= customtkinter.CTkButton(chisato, text='ENTER', text_color='black', command=press)
+press_button= customtkinter.CTkButton(chisato, text='ENTER', text_color='black', command=press, font=inoue)
 press_button.place(x=120, y=40)
 
 # first number to enter
-enter_firstnumber=customtkinter.CTkEntry(chisato, width=100, height=50)
+enter_firstnumber=customtkinter.CTkEntry(chisato, width=100, height=50, font= taki)
 enter_firstnumber.place(x= 20, y=150)
 
 # second number to enter 
-enter_secondnumber=customtkinter.CTkEntry(chisato, width=100, height=50)
+enter_secondnumber=customtkinter.CTkEntry(chisato, width=100, height=50, font= taki)
 enter_secondnumber.place(x= 270, y=150)
 
 # third number to enter 
-enter_thirdnumber=customtkinter.CTkEntry(chisato, width=100, height=50)
+enter_thirdnumber=customtkinter.CTkEntry(chisato, width=100, height=50, font=taki)
 enter_thirdnumber.place(x= 150, y=150)
 
 
