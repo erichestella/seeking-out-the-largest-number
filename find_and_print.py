@@ -8,6 +8,7 @@ chisato.geometry ("500x400")
 chisato.config(bg='pink')
 chisato.resizable(False, False)
 
+# these are defined globally 
 total_biggest= None
 total_highest= None
 total_largest= None
@@ -29,17 +30,11 @@ cutie_background = ImageTk.PhotoImage(resized_image)
 pretty_bg = customtkinter.CTkLabel(master=chisato, image=cutie_background, text='')
 pretty_bg.pack()  
 
-# the frame to display the buttons and entry boxes
+# this frame is for displaying the buttons and entry boxes
 takichi_frame= customtkinter.CTkFrame(master=pretty_bg, width=400, height=300, fg_color='#00FFFF', corner_radius=0, border_width=0)
 takichi_frame.place(relx= 0.5, rely= 0.5, anchor= CENTER)
 
-
-
-   
-   
-
-
-# defines which is the largest number among the three numbers entered
+# determines which is the largest number among the three numbers entered
 def press():
    global total_biggest, total_highest, total_largest
 
@@ -65,22 +60,21 @@ def press():
       total_highest= customtkinter.CTkLabel(master=pretty_bg, text=f'Biggest Number: {enter_thirdnumber.get()}', font=chichi, fg_color='#00FFFF')
       total_highest.place(x= 85, y=300)
 
+# it clears the numbers entered in the three entry boxes along with the display of the biggest number among them.
 def clear ():
    enter_firstnumber.delete(0, END)
    enter_secondnumber.delete(0, END)
    enter_thirdnumber.delete(0, END)
+   if total_highest: 
+      total_highest.destroy()
+   if total_biggest:
+      total_biggest.destroy()
+   if total_largest:
+      total_largest.destroy()
    
- 
-   
-
-
-   
-
-
 # first number entry box to enter
 enter_firstnumber=customtkinter.CTkEntry(chisato, width=100, height=50, font= taki, corner_radius=0, border_width=1, border_color='black')
 enter_firstnumber.place(x= 70, y=150)
-
 
 # second number entry box to enter
 enter_secondnumber=customtkinter.CTkEntry(master=pretty_bg, width=100, height=50, font=taki, corner_radius=0, border_width=1, border_color='black')
@@ -91,11 +85,11 @@ enter_secondnumber.place(x= 200, y=150)
 enter_thirdnumber=customtkinter.CTkEntry(master=pretty_bg, width=100, height=50, font= taki, corner_radius=0, border_width=1, border_color='black')
 enter_thirdnumber.place(x= 330, y=150)
 
-
-# button to press if the three numbers are done entering 
+# button to press if the three numbers are done entered 
 press_button= customtkinter.CTkButton(chisato, text='ENTER', text_color='black', command=press, font=inoue, corner_radius=0, border_width=1, border_color='black')
 press_button.place(x=175, y=70)
 
+# button to clear the numbers that has entered and the chosen biggest number 
 delete_button = customtkinter.CTkButton(chisato, text='CLEAR', text_color='black',  command= clear, font=inoue, corner_radius=0, border_width=1, border_color='black')
 delete_button.place(x= 175, y= 230)
 
