@@ -1,18 +1,16 @@
 from tkinter import *
 import customtkinter 
-from tkinter import messagebox 
+from PIL import Image, ImageTk
 
 chisato= customtkinter.CTk()
-chisato.title("FIND AND PRINT THE BIGGEST AMONG THEM")
-chisato.geometry ("400x300")
-chisato.config(bg="pink")
+chisato.title("WHICH IS BIGGEST NUMBER?")
+chisato.geometry ("500x400")
+chisato.config(bg='pink')
 chisato.resizable(False, False)
 
 
 taki= ('Britannic Bold', 45, 'bold')
 inoue= ('Franklin Gothic Heavy', 30, 'bold')
-
-
 
 # defines which is the largest number among the three numbers entered
 def press():
@@ -29,24 +27,43 @@ def press():
       print(f'{third_number} is the biggest numeber')
 
 
+# it opens the image
+cutie_background = Image.open('computer background.png')
+
+# resizing the image 
+resized_image = cutie_background.resize((670, 550))  # Replace width and height with your desired dimensions
+
+# displaying the background
+cutie_background = ImageTk.PhotoImage(resized_image)
+pretty_bg = customtkinter.CTkLabel(master=chisato, image=cutie_background, text='')
+pretty_bg.pack()  
+
+
+takichi_frame= customtkinter.CTkFrame(master=pretty_bg, width=400, height=300, fg_color='#00FFFF', corner_radius=0, border_width=0)
+takichi_frame.place(relx= 0.5, rely= 0.5, anchor= CENTER)
+
+
+
+# first number to enter
+enter_firstnumber=customtkinter.CTkEntry(chisato, width=100, height=50, font= taki, corner_radius=0, border_width=1, border_color='black')
+enter_firstnumber.place(x= 20, y=150)
+
+# second number to enter 
+enter_secondnumber=customtkinter.CTkEntry(master=pretty_bg, width=100, height=50, font= taki, corner_radius=0, border_width=1, border_color='black')
+enter_secondnumber.place(x= 270, y=150)
+
+# third number to enter 
+enter_thirdnumber=customtkinter.CTkEntry(master=pretty_bg, width=100, height=50, font=taki, corner_radius=0, border_width=1, border_color='black')
+enter_thirdnumber.place(x= 150, y=150)
+
 
 
 
 # button to press if the three numbers are done entering 
-press_button= customtkinter.CTkButton(chisato, text='ENTER', text_color='black', command=press, font=inoue)
+press_button= customtkinter.CTkButton(chisato, text='ENTER', text_color='black', command=press, font=inoue, corner_radius=0, border_width=1, border_color='black')
 press_button.place(x=120, y=40)
 
-# first number to enter
-enter_firstnumber=customtkinter.CTkEntry(chisato, width=100, height=50, font= taki)
-enter_firstnumber.place(x= 20, y=150)
 
-# second number to enter 
-enter_secondnumber=customtkinter.CTkEntry(chisato, width=100, height=50, font= taki)
-enter_secondnumber.place(x= 270, y=150)
-
-# third number to enter 
-enter_thirdnumber=customtkinter.CTkEntry(chisato, width=100, height=50, font=taki)
-enter_thirdnumber.place(x= 150, y=150)
 
 
 
