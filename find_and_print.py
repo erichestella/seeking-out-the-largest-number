@@ -38,9 +38,9 @@ takichi_frame.place(relx= 0.5, rely= 0.5, anchor= CENTER)
 def press():
    global total_biggest, total_highest, total_largest
 
-   first_number = float(enter_firstnumber.get())
-   second_number = float(enter_secondnumber.get())
-   third_number = float(enter_thirdnumber.get())
+   first_number = int(enter_firstnumber.get())
+   second_number = int(enter_secondnumber.get())
+   third_number =int(enter_thirdnumber.get())
    
 # shows that the number in the first entry box is greater than the numbers in the other two entry boxes
    if first_number > second_number and first_number > third_number:
